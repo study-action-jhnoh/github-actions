@@ -7,3 +7,7 @@ jobs:
     steps:
     - name: steps1
       run: echo hello world
+    - name: steps2
+      run: |
+        echo hello world
+        echo github action
