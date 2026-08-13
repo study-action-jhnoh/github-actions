@@ -3,15 +3,15 @@ on: issue_comment
 
 jobs:
   pr-comment:
-    if: ${{github.event.issue.pull_request}}
+    if: ${{ github.event.issue.pull_request }}
     runs-on: ubuntu-latest
     steps:
     - name: pr comment
       run: echo ${{github.event.issue.pull_request}}
 
   issue-comment:
-    if: ${{github.event.issue.pull_request}}
+    if: ${{ !github.event.issue.pull_request }}
     runs-on: ubuntu-latest
     steps:
-    - name: pr comment
+    - name: issue_comment comment
       run: echo ${{github.event.issue.pull_reques t}}
