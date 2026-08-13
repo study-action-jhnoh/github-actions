@@ -13,5 +13,5 @@ jobs:
     if: ${{ !github.event.issue.pull_request }}
     runs-on: ubuntu-latest
     steps:
-    - name: issue_comment comment
+    - name: issue comment
       run: echo ${{github.event.issue.pull_reques t}}
