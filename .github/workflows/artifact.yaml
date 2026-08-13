@@ -23,4 +23,4 @@ jobs:
           name: artifact-test
           path: ./
       - name: check
-        run cat hello.txt
+        run: cat hello.txt
