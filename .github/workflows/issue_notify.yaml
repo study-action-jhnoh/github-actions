@@ -10,7 +10,7 @@ jobs:
       level: ${{ steps.get-keyword.outputs.level }}
     steps:
     - name: checkout
-      uses: action/checkout@v4
+      uses: actions/checkout@v4
     - name: get keyword
       id: get-keyword
       run: |
