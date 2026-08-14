@@ -51,6 +51,7 @@ jobs:
               }
             ]
           }
+    - name: check-get-keyword.outputs.level
       run:
         echo needs.get-keyword.outputs.level
       env:
