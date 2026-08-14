@@ -18,13 +18,13 @@ on:
 
 jobs:
   create-repo-automation:
-    id: create-repo
     runs-on: ubuntu-latest
     steps:
     - name: gh auth login
       run: |
         echo ${{ secrets.PERSONAL_ACCESS_TOKEN }} | gh auth login --with-token
     - name: create-repo
+      id: create-repo
       run: |
         gh repo create study-action-jhnoh/${{ inputs.prefix }}-${{ inputs.name }} --public --add-readme
     - name: slack
