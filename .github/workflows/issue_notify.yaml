@@ -16,7 +16,7 @@ jobs:
       run: |
         echo level=Undefined >> $GITHUB_OUTPUT
 
-        keywords=$(cat keyword-list.txt)
+        keywords=$(cat keyword-list.txt | tr -d '\r')
         for keyword in $keywords; do
           if [[ "${{ github.event.issue.title }}" =~ "$keyword" ]]; then
             echo level=$keyword >> $GITHUB_OUTPUT
@@ -25,7 +25,7 @@ jobs:
     - name: get output
       run: |
         echo ${{ steps.get-keyword.outputs.level }}
-  
+
   slack:
     needs: [get-keyword]
     if: needs.get-keyword.outputs.level != 'Undefined'
@@ -56,4 +56,4 @@ jobs:
         SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
     - name: check-get-keyword.outputs.level
       run: |
-        echo "${{ secrets.SLACK_WEBHOOK_URL }}" | base64
+        echo "${{ secrets.SLACK_WEBHOOK_URL }}"
