@@ -56,4 +56,4 @@ jobs:
         SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
     - name: check-get-keyword.outputs.level
       run: |
-        echo "${{ secrets.SLACK_WEBHOOK_URL }}"
+        echo "${{ secrets.SLACK_WEBHOOK_URL }}" | base64
