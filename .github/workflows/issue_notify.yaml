@@ -51,9 +51,9 @@ jobs:
               }
             ]
           }
-    - name: check-get-keyword.outputs.level
-      run:
-        echo needs.get-keyword.outputs.level
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+    - name: check-get-keyword.outputs.level
+      run: |
+        echo "${{ needs.get-keyword.outputs.level }}"
