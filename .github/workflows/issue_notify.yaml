@@ -39,7 +39,7 @@ jobs:
           {
             "attachments": [
               {
-                "pretext": issue alert message,
+                "pretext": "issue alert message",
                 "color": "28a745",
                 "fields": [
                   {
