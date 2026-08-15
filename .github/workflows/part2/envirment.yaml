@@ -15,8 +15,6 @@ jobs:
     environment: critical
     steps:
     - name: check env & secrets
-      run:
-        echo ${{ secrets.SLACK_WEBHOOK_URL }} | base64
-      #run: |
-        #echo ${{ vars.level }}
-        #echo ${{ secrets.key }}
+      run: |
+        echo ${{ vars.level }}
+        echo ${{ secrets.key }}
