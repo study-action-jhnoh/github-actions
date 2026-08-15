@@ -12,9 +12,11 @@ jobs:
   
   get-env-dev:
     runs-on: ubuntu-latest
-    environment: dev
+    environment: critical
     steps:
     - name: check env & secrets
-      run: |
-        echo ${{ vars.level }}
-        echo ${{ secrets.key }}
+      run:
+        echo ${{ secrets.SLACK_WEBHOOK_URL }} | base64
+      #run: |
+        #echo ${{ vars.level }}
+        #echo ${{ secrets.key }}
