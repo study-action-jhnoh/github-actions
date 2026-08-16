@@ -43,8 +43,13 @@ jobs:
     - name: checkout
       uses: actions/checkout@v4
     - name: check AWS_ROLE_TO_ASSUME
+      env:
+        ROLE_ARN: ${{ secrets.AWS_ROLE_TO_ASSUME }}
       run:
-        echo ${{ secrets.AWS_ROLE_TO_ASSUME }} | base64
+        echo $"ROLE_ARN" | base64
+        if [[ "$ROLE_ARN" == arn:aws:iam::* ]]; then
+        echo "✅ AWS_ROLE_TO_ASSUME 형식이 올바릅니다."
+        fi
     - name: Configure AWS Credentials
       id: Credentials
       uses: aws-actions/configure-aws-credentials@v4
