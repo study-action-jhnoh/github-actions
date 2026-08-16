@@ -47,9 +47,6 @@ jobs:
         ROLE_ARN: ${{ secrets.AWS_ROLE_TO_ASSUME }}
       run:
         echo $"ROLE_ARN" | base64
-        if [[ "$ROLE_ARN" == arn:aws:iam::* ]]; then
-        echo "✅ AWS_ROLE_TO_ASSUME 형식이 올바릅니다."
-        fi
     - name: Configure AWS Credentials
       id: Credentials
       uses: aws-actions/configure-aws-credentials@v4
