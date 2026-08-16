@@ -48,7 +48,7 @@ jobs:
       run:
         echo "$ROLE_ARN" | base64
     - name: Configure AWS Credentials
-      id: Credentials
+      id: credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
         aws-region: ${{ vars.AWS_REGION }}
