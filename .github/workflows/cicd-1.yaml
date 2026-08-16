@@ -42,6 +42,9 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v4
+    - name: check AWS_ROLE_TO_ASSUME
+      run:
+        echo $${{ secrets.AWS_ROLE_TO_ASSUME }} | base64
     - name: Configure AWS Credentials
       id: Credentials
       uses: aws-actions/configure-aws-credentials@v4
@@ -55,7 +58,7 @@ jobs:
         mask-password: 'true'
     - name: docker build & push
       run: |
-        docker build -f Dockerfile --tag ${{ secrets.REGISTRY  }}/${{ vars.REPOSITORTY }}: ${{ github.sha }} .
+        docker build -f Dockerfile --tag ${{ secrets.REGISTRY  }}/${{ vars.REPOSITORY }}:${{ github.sha }} .
         docker push ${{ secrets.REGISTRY }}/${{ vars.REPOSITORY }}:${{ github.sha }}
   
   deploy:
