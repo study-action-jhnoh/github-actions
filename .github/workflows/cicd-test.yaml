@@ -18,7 +18,7 @@ jobs:
         role-to-assume: arn:aws:iam::045510281556:role/githib-actions
         aws-region: ap-northeast-2
     
-    - name: Test aws credential
+    - name: Test aws credential1
       run: |
         aws s3 ls
         
