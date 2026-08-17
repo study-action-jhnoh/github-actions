@@ -42,11 +42,6 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v4
-    - name: check AWS_ROLE_TO_ASSUME
-      env:
-        ROLE_ARN: ${{ secrets.AWS_ROLE_TO_ASSUME }}
-      run:
-        echo "$ROLE_ARN" | base64
     - name: Configure AWS Credentials
       id: credentials
       uses: aws-actions/configure-aws-credentials@v4
